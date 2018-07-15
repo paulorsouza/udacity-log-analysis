@@ -1,6 +1,4 @@
-"""
-This module is responsible to fetching data in db
-"""
+"""This module is responsible to fetching data in db"""
 
 
 import psycopg2
@@ -9,7 +7,7 @@ def connect():
     """Returns a connection with news db."""
     return psycopg2.connect("dbname=news")
 
-def get_top_articles(count):
+def list_top_articles(count):
     """Returns rank of articles."""
     sql = '''
     select count(b.id) as views, a.slug, a.title
@@ -26,4 +24,11 @@ def get_top_articles(count):
     conn.close()
     return rank_list
 
-print(get_top_articles(3))
+teste = get_top_articles(3)
+
+
+print(teste[0][0])
+print(teste[1][0])
+print(teste[2][0])
+print(teste[0][1])
+print(teste[0][2])
