@@ -48,6 +48,3 @@ def list_critical_days():
     where error.date = success.date and ((error.num * 100)/(success.num + error.num)) >= 1   
     '''
     return execute_query(sql, ())
-
-teste2 = list_critical_days()
-print(teste2[0][0].strftime("%Y-%m-%d"))
