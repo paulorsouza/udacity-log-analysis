@@ -3,14 +3,13 @@ Udacity Log Analysis
 
 > Console app to list analysis in log tables
 
+![](./print.jpg)
+
+# With Vagrant
+
 ## Prerequisites
 
 - [vagrant](https://www.vagrantup.com/)
-
-### Data
-
-[Download data](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
-Unzip newsdata.zip then copy to udacity-log-analysis
 
 ## Install
 
@@ -20,20 +19,6 @@ cd udacity-log-analysis
 
 vagrant up
 vagrant ssh
-```
-
-## Dependencies
-
-```shell
-pip3 install texttable psycopg2 psycopg2-binary
-pip3 install -U pytest
-```
-
-## Populate database
-
-```shell
-cd /vagrant
-psql -d news -f newsdata.sql
 ```
 
 ### Run
@@ -47,5 +32,46 @@ python3 analysis.py
 
 ```shell
 cd /vagrant/app
+pytest
+```
+
+# Without Vagrant
+
+## Prerequisites
+
+- [postgresql](https://www.postgresql.org/)
+- [python3](https://www.python.org/download/releases/3.0/)
+- [pip3](https://docs.python.org/3/installing/index.html)
+
+## Install
+
+```shell
+pip3 install --upgrade pip
+pip3 install texttable psycopg2 psycopg2-binary
+pip3 install -U pytest
+```
+
+## Data
+
+[Download data](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+
+Unzip newsdata.zip 
+
+```shell
+createdb news
+psql news -f newsdata.sql
+```
+
+### Run
+
+```shell
+cd /app
+python3 analysis.py
+```
+
+### Run tests
+
+```shell
+cd /app
 pytest
 ```
