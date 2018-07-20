@@ -4,6 +4,7 @@
 import pytest
 import repository
 
+
 def test_list_top_articles():
     """Should return top articles in correct order"""
     top3 = repository.list_top_articles(3)
@@ -16,7 +17,8 @@ def test_list_top_articles():
     top1 = repository.list_top_articles(1)
     assert len(top1) == 1
     top9 = repository.list_top_articles(9)
-    assert len(top9) == 8 # There are just 8 articles
+    assert len(top9) == 8
+
 
 def test_list_authors_views():
     """Should return top authors in correct order"""
@@ -30,6 +32,7 @@ def test_list_authors_views():
     assert authors[1][1] == 'Rudolf von Treppenwitz'
     assert authors[2][1] == 'Anonymous Contributor'
     assert authors[3][1] == 'Markoff Chaney'
+
 
 def test_list_critical_days():
     """Should return days that log more than 1% requests 404"""
